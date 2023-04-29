@@ -10,15 +10,14 @@ AR = ar rcs
 RM = rm -f
 
 # directories
-SRCDIR = $(addprefix $(PIPEX_DIR), /src/)
+SRCDIR = $(addprefix $(PUSH_SWAP_DIR), /src/)
 OBJDIR = obj/
 
 # pipex
 PUSH_SWAP_DIR = ./push_swap_rec
 
 #libft
-LIBFT = ./libft/libft.a
-LIBFT_DIR = ./libft
+PRINTF_DIR = ./ft_printf
 
 #colors
 
@@ -39,25 +38,23 @@ OBJFILES = $(addprefix $(OBJDIR), $(addsuffix .o, $(FUNCTIONS)))
 
 all: $(NAME) 
 
-$(NAME):
-	@make -C ./libft
+$(NAME): 
+	@make -C $(PRINTF_DIR)
 	@$(COMPILE) $(SRCFILES) $(LIBFT) -o $(NAME)
 	@echo "$(GREEN)$(NAME) created.$(DEF_COLOR)"
 
 
-clean: 
-	@make clean -C $(LIBFT_DIR)
+clean:
+	@$(RM) $(NAME)
+	@make clean -C $(PRINTF_DIR)
 
 fclean: 
-	@make fclean -C $(LIBFT_DIR)
-	@$(RM) pipex
+	@make fclean -C $(PRINTF_DIR)
+	@$(RM) $(NAME)
 	@echo "$(ORANGE)$(NAME) removed.$(DEF_COLOR)"
 
-# test: fclean all
-# 	@echo Hello hello test test test > testing.txt
-# 	./pipex testing.txt "grep hello" "ls -l" test3.txt
-
-# testclean: fclean
-# 	rm *.txt
+test: fclean
+	./$(TESTER_PUSH_SWAP)
+	
 
 re: fclean all
