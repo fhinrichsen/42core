@@ -2,7 +2,7 @@ NAME = push_swap
 
 # compile flags
 CC = gcc
-CFLAGS = -Wall -Wextra -Werror -I./libft/lib
+CFLAGS = -Wall -Wextra -Werror -I./push_swap_rec/lib
 COMPILE = $(CC) $(CFLAGS)
 
 AR = ar rcs
@@ -29,6 +29,9 @@ GREEN			=		\033[1;92m
 WHITE			=		\033[0;97m
 
 FUNCTIONS =	main \
+			stack_build \
+			errors \
+			validation \
 			
 
 
@@ -57,9 +60,7 @@ fclean:
 	@$(RM) $(NAME)
 	@echo "$(ORANGE)$(NAME) removed.$(DEF_COLOR)"
 
-test: re
-	cd anna
-	./test.sh
-	
+test: fast
+	cd anna && ./test.sh
 
 re: fclean all

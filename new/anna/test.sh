@@ -808,4 +808,3 @@ ARG="1 7638366 2 3 497 4 5 6 7 2147483647 498 500"
 OK=$(../push_swap $ARG | ./checker_Mac $ARG)
 NUM=$(../push_swap $ARG | wc -l)
 echo "Biggest int ${OK} ${NUM}"
-source $HOME/.zshrc
