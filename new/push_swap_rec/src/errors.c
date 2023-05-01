@@ -1,29 +1,43 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   errors.c                                           :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/01 21:33:26 by fhinrich          #+#    #+#             */
+/*   Updated: 2023/05/01 21:33:27 by fhinrich         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
-void ft_error(t_stack *stack)
+void	ft_error(t_stack *stack)
 {
 	if (stack == 0)
+	{
 		ft_printf("Error\n");
-		exit(1);
+		exit (1);
+	}
 	free_stack(stack);
 }
 
-void free_stack(t_stack *stack)
+void	free_stack(t_stack *stack)
 {
 	ft_printf("I should frre struct stack but I'm not implemented");
 	stack = stack + 0;
-	exit(1);
+	exit (1);
 }
 
-void validation_error(char **arguments_s)
+void	validation_error(char **arguments_s)
 {
-	int i;
+	int	i;
 
 	i = 0;
 	if (arguments_s == 0)
 	{
 		ft_printf("Error\n");
-		exit(20);
+		exit (20);
 	}
 	while (arguments_s[i] != 0)
 	{
@@ -31,5 +45,5 @@ void validation_error(char **arguments_s)
 		i++;
 	}
 	ft_printf("Error\n");
-	exit(21);
+	exit (21);
 }
