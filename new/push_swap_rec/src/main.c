@@ -8,6 +8,6 @@ int main(int argc, char **argv)
 		read_two_arguments(argv[1]);
 	else
 		read_n_arguments((argv + 1), argc);
-	ft_printf("Done");
+	// ft_printf("Done");
 	return(0);
 }

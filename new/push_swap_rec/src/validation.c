@@ -32,3 +32,22 @@ void valid_int(char **arguments_s, int created_at_runtime)
 	}
 	return ;
 }
+
+void unique_ints(int *arg_i)
+{
+	int i;
+	int j;
+
+	i = 0;
+	while (arg_i[i] != '\0')
+	{
+		j = (i + 1);
+		while (arg_i[j] != '\0')
+		{
+			if (arg_i[i] == arg_i[j])
+				ft_error(0);
+			j++;
+		}
+		i++;
+	}
+}

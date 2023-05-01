@@ -24,6 +24,7 @@ typedef struct s_stack
 
 //errors
 // 20 validation
+//30 malloc fail
 void ft_error(t_stack *stack);
 void free_stack(t_stack *stack);
 void validation_error(char **arguments_s);
@@ -32,7 +33,8 @@ void read_two_arguments(char *argv);
 void read_n_arguments(char **arguments_s, int argc);
 //validation
 void valid_int(char **arguments_s, int created_at_runtime);
+void unique_ints(int *arg_i);
 //int handling
 int ft_strtoint(const char *str);
-int *strarrtointarr(char **arguments_s, int argc);
+int *str_arr_to_int_arr(char **arguments_s, int argc);
 #endif

@@ -11,7 +11,8 @@ void read_two_arguments(char *argv)
 	valid_int(arguments_s, TRUE);
 	while (arguments_s[count] != NULL)
 		count++;
-	arguments_i = strarrtointarr(arguments_s, count);
+	arguments_i = str_arr_to_int_arr(arguments_s, count);
+	unique_ints(arguments_i);
 }
 
 void read_n_arguments(char **arguments_s, int argc)
@@ -19,7 +20,7 @@ void read_n_arguments(char **arguments_s, int argc)
 	int	*arguments_i;
 
 	valid_int(arguments_s, FALSE);
-	arguments_i = strarrtointarr(arguments_s, argc);
-	
+	arguments_i = str_arr_to_int_arr(arguments_s, argc);
+	unique_ints(arguments_i);
 	return;
 }

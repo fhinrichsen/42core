@@ -1,12 +1,14 @@
 #include <limits.h>
 #include "push_swap.h"
 
-int *strarrtointarr(char **arguments_s, int argc)
+int *str_arr_to_int_arr(char **arguments_s, int argc)
 {
 	int i;
 	int	*arguments_i;
 
 	arguments_i = malloc(argc * sizeof(int *));
+	if (!arguments_i)
+		exit(30);
 	i = 0;
 	while (arguments_s[i] != NULL)
 	{
