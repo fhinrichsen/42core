@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 22:20:05 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/02 13:37:53 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/02 13:49:51 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -61,7 +61,7 @@ void	unique_ints(int *start, int *end)
 		{
 			if (*curent_pos == temp)
 			{
-				ft_error(0);
+				ft_error(0, 25);
 			}
 			curent_pos++;
 		}

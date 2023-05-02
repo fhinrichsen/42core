@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:31:12 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/02 12:57:29 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/02 15:56:42 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,19 +36,25 @@ typedef struct s_stack
 }	t_stack;
 
 //errors
-// 20 validation
+//20 validation
 //30 malloc fail
-void	ft_error(t_stack *stack);
-void	free_stack(t_stack *stack);
+void	ft_error(t_stack *stack, int err_no);
+void	free_stack(t_stack *stack, int err_no);
 void	validation_error(char **arguments_s);
 //stack_build
 void	read_two_arguments(char *argv);
 void	read_n_arguments(char **arguments_s, int argc);
+t_stack	*build_stack(int *start, int *end);
 //validation
 void	valid_int(char **arguments_s, int created_at_runtime);
 void	unique_ints(int *arg_i, int *end);
 //int handling
 int		ft_strtoint(const char *str);
-int		*str_arr_to_int_arr(char **arguments_s, int argc);
+t_stack *handle_input(char **arguments_s, int argc);
 void	check_min_max(long long val, int sign);
+//stack operations
+t_stack *init_stack();
+//node operations
+t_node *new_node(int value);
+void update_node_value(t_node *my_node, int new_val);
 #endif

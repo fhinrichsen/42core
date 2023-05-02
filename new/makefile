@@ -33,6 +33,8 @@ FUNCTIONS =	main \
 			errors \
 			validation \
 			input_handling \
+			stack_operations \
+			node_operations \
 
 SRCFILES = $(addprefix $(SRCDIR), $(addsuffix .c, $(FUNCTIONS)))
 OBJFILES = $(addprefix $(OBJDIR), $(addsuffix .o, $(FUNCTIONS)))

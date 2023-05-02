@@ -6,18 +6,19 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:52:20 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/02 12:50:45 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/02 15:34:31 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include "push_swap.h"
 
-int	*str_arr_to_int_arr(char **arguments_s, int argc)
+t_stack *handle_input(char **arguments_s, int argc)
 {
 	int	i;
 	int	*arguments_i;
 	int	*end;
+	t_stack *stack;
 
 	arguments_i = malloc(argc * sizeof(int *));
 	if (!arguments_i)
@@ -30,14 +31,15 @@ int	*str_arr_to_int_arr(char **arguments_s, int argc)
 	}
 	end = &arguments_i[i];
 	unique_ints(arguments_i, end);
-	return (FALSE);
+	stack = build_stack(arguments_i, end);
+	return (stack);
 }
 
 int	ft_strtoint(const char *str)
 {
 	long long	val;
 	int			sign;
-	int			*re;
+	int			re;
 
 	sign = 1;
 	val = 0;
@@ -53,10 +55,7 @@ int	ft_strtoint(const char *str)
 		check_min_max(val, sign);
 		str++;
 	}
-	re = malloc(sizeof(int));
-	if (!re)
-		ft_error(0);
-	return ((*re = (int) val * sign));
+	return ((re = (int) val * sign));
 }
 
 void	check_min_max(long long val, int sign)
@@ -64,11 +63,11 @@ void	check_min_max(long long val, int sign)
 	if (sign == -1)
 	{
 		if ((val * sign) < INT32_MIN)
-			ft_error(0);
+			ft_error(0, 29);
 	}
 	else if (val > INT32_MAX)
 	{
-		ft_error(0);
+		ft_error(0, 28);
 	}
 	return ;
 }
