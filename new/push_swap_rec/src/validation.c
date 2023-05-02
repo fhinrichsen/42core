@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 22:20:05 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/01 22:21:35 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/02 13:37:53 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -45,21 +45,27 @@ void	valid_int(char **arguments_s, int created_at_runtime)
 	return ;
 }
 
-void	unique_ints(int *arg_i)
+void	unique_ints(int *start, int *end)
 {
-	int	i;
-	int	j;
+	int	*curent_pos;
+	int	temp;
+	int	offset;
 
-	i = 0;
-	while (arg_i[i] != '\0')
+	offset = 1;
+	curent_pos = &start[offset];
+	temp = *start;
+	while (curent_pos < end)
 	{
-		j = (i + 1);
-		while (arg_i[j] != '\0')
+		temp = start[(offset - 1)];
+		while (curent_pos < end)
 		{
-			if (arg_i[i] == arg_i[j])
+			if (*curent_pos == temp)
+			{
 				ft_error(0);
-			j++;
+			}
+			curent_pos++;
 		}
-		i++;
+		offset++;
+		curent_pos = &start[offset];
 	}
 }

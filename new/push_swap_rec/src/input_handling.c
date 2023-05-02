@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:52:20 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/01 22:18:25 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/02 12:50:45 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,6 +17,7 @@ int	*str_arr_to_int_arr(char **arguments_s, int argc)
 {
 	int	i;
 	int	*arguments_i;
+	int	*end;
 
 	arguments_i = malloc(argc * sizeof(int *));
 	if (!arguments_i)
@@ -27,8 +28,9 @@ int	*str_arr_to_int_arr(char **arguments_s, int argc)
 		arguments_i[i] = ft_strtoint(arguments_s[i]);
 		i++;
 	}
-	arguments_i[i] = '\0';
-	return (arguments_i);
+	end = &arguments_i[i];
+	unique_ints(arguments_i, end);
+	return (FALSE);
 }
 
 int	ft_strtoint(const char *str)
