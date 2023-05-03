@@ -35,6 +35,7 @@ FUNCTIONS =	main \
 			input_handling \
 			stack_operations \
 			node_operations \
+			prison_break \
 
 SRCFILES = $(addprefix $(SRCDIR), $(addsuffix .c, $(FUNCTIONS)))
 OBJFILES = $(addprefix $(OBJDIR), $(addsuffix .o, $(FUNCTIONS)))
@@ -48,7 +49,7 @@ fast: fclean
 
 $(NAME): 
 	@make -C $(LIBFT_DIR)
-	@$(COMPILE) $(SRCFILES) $(LIBFT) -o $(NAME)
+	@$(COMPILE) $(SRCFILES) $(LIBFT) -fsanitize=address -g -o $(NAME)
 	@echo "$(GREEN)$(NAME) created.$(DEF_COLOR)"
 
 

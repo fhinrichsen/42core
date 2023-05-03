@@ -6,30 +6,32 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:52:20 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/02 15:34:31 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:13:31 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include <limits.h>
 #include "push_swap.h"
 
-t_stack *handle_input(char **arguments_s, int argc)
+t_stack *handle_input(char **arguments_s, int argc, int created)
 {
 	int	i;
 	int	*arguments_i;
 	int	*end;
 	t_stack *stack;
 
-	arguments_i = malloc(argc * sizeof(int *));
+	arguments_i = malloc(argc * sizeof(int));
 	if (!arguments_i)
 		exit (30);
 	i = 0;
 	while (arguments_s[i] != NULL)
 	{
 		arguments_i[i] = ft_strtoint(arguments_s[i]);
+		if (created)
+			free(arguments_s[i]);
 		i++;
 	}
-	end = &arguments_i[i];
+	end = &arguments_i[i - 1];
 	unique_ints(arguments_i, end);
 	stack = build_stack(arguments_i, end);
 	return (stack);

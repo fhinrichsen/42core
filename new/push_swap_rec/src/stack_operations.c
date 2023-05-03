@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:34:32 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/02 15:45:25 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:40:34 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,15 +27,30 @@ t_stack *init_stack()
 	return (stack);
 }
 
-t_node *new_node(int value)
+t_stack *fill_stack_a(t_stack *stack, int *start, int *end)
 {
-	t_node *new_node;
+	int		*curent_pos;
+	t_node	*temp_end;
 
-	new_node = (t_node *)malloc(sizeof(t_node));
-	if (!new_node)
-		return(NULL);
-	new_node->prev = NULL;
-	new_node->next = NULL;
-	new_node->value = value;
-	return (new_node);
+	curent_pos = NULL;
+	if (start != end)
+		curent_pos = &start[1];
+	else
+	{
+		free(start);
+		lonely_number(stack, end);
+	}
+	temp_end = stack->a_top;
+	while (curent_pos <= end)
+	{
+	temp_end = add_end_node(*curent_pos, stack->a_top, temp_end);
+		if(temp_end == NULL)
+		{
+			free(start);
+			free_stack(stack, 20);
+		}
+		curent_pos++;
+	}
+	free(start);
+	return (stack);
 }

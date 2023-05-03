@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 22:20:05 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/02 13:49:51 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/03 10:14:39 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,13 +54,14 @@ void	unique_ints(int *start, int *end)
 	offset = 1;
 	curent_pos = &start[offset];
 	temp = *start;
-	while (curent_pos < end)
+	while (curent_pos <= end)
 	{
 		temp = start[(offset - 1)];
-		while (curent_pos < end)
+		while (curent_pos <= end)
 		{
 			if (*curent_pos == temp)
 			{
+				free(start);
 				ft_error(0, 25);
 			}
 			curent_pos++;

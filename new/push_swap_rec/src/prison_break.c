@@ -1,24 +1,40 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   prison_break.c                                     :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2023/05/01 21:35:42 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/03 10:05:34 by fhinrich         ###   ########.fr       */
+/*   Created: 2023/05/01 21:34:32 by fhinrich          #+#    #+#             */
+/*   Updated: 2023/05/03 10:43:54 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	main(int argc, char **argv)
+void	free_stack(t_stack *stack, int err_no)
 {
-	if (argc == 1)
-		exit(1);
-	if (argc == 2)
-		read_two_arguments(argv[1]);
-	else
-		read_n_arguments((argv + 1), argc);
-	return (0);
+	free_list(stack->a_top);
+	free_list(stack->b_top);
+	exit (err_no);
+}
+
+void free_list(t_node *head)
+{
+	t_node *current;
+	t_node *next;
+	
+	current = head;
+	next = NULL;
+	if (head == NULL)
+		return;
+	 while (current != NULL) 
+	 {
+		next = current->next;
+		free(current);
+		current = next;
+		if (current == head)
+			break;
+	 }
+	
 }
