@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:31:12 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/03 09:30:56 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:10:09 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -40,6 +40,7 @@ typedef struct s_stack
 //30 malloc fail
 void	ft_error(t_stack *stack, int err_no);
 void	validation_error(char **arguments_s);
+void	validation_error2(char **arguments_s);
 //stack_build
 void	read_two_arguments(char *argv);
 void	read_n_arguments(char **arguments_s, int argc);
@@ -47,10 +48,11 @@ t_stack	*build_stack(int *start, int *end);
 //validation
 void	valid_int(char **arguments_s, int created_at_runtime);
 void	unique_ints(int *arg_i, int *end);
+void empty_or_lonely(char **string_arr);
 //int handling
-int		ft_strtoint(const char *str);
+int	ft_strtoint(const char *str, int *start);
 t_stack *handle_input(char **arguments_s, int argc, int created);
-void	check_min_max(long long val, int sign);
+int	check_min_max(long long val, int sign, int *start);
 //stack operations
 t_stack *init_stack();
 t_stack *fill_stack_a(t_stack *stack, int *start, int *end);

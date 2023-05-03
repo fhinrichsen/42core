@@ -49,9 +49,8 @@ fast: fclean
 
 $(NAME): 
 	@make -C $(LIBFT_DIR)
-	@$(COMPILE) $(SRCFILES) $(LIBFT) -fsanitize=address -g -o $(NAME)
+	@$(COMPILE) $(SRCFILES) $(LIBFT) -g -o $(NAME)
 	@echo "$(GREEN)$(NAME) created.$(DEF_COLOR)"
-
 
 clean:
 	@$(RM) $(NAME)

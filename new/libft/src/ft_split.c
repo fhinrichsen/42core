@@ -6,13 +6,13 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/01/20 13:00:44 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/04/29 15:50:54 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/03 15:44:26 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "libft.h"
 
-size_t	count_words(char const *string, char delim)
+static size_t	count_words(char const *string, char delim)
 {
 	size_t	count;
 	int		index;

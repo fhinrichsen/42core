@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:33:26 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/02 19:50:23 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/03 17:06:56 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,6 +33,23 @@ void	validation_error(char **arguments_s)
 		ft_printf("Error\n");
 		exit (20);
 	}
+	while (arguments_s[i] != 0)
+	{
+		free(arguments_s[i]);
+		i++;
+	}
+	ft_printf("Error\n");
+	exit (21);
+}
+/// @brief Just like validation error, exept it does not exit if 0.
+/// @param arguments_s 
+void	validation_error2(char **arguments_s)
+{
+	int	i;
+
+	i = 0;
+	if (arguments_s == 0)
+		return ;
 	while (arguments_s[i] != 0)
 	{
 		free(arguments_s[i]);

@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 22:20:05 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/03 10:14:39 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/03 12:26:00 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -68,5 +68,31 @@ void	unique_ints(int *start, int *end)
 		}
 		offset++;
 		curent_pos = &start[offset];
+	}
+}
+
+void empty_or_lonely(char **string_arr)
+{
+	int		i;
+	int		len;
+	char	*test;
+
+	len = 0;
+	i = 0;
+	while (string_arr[i] != NULL)
+	{
+		len = ft_strlen(string_arr[i]);
+		if (len == 0)
+			exit(200);
+		test = string_arr[i];
+		while (*test != '\0')
+		{
+			if (*test == ' ')
+				len--;
+			test++;
+		}
+		if (len <= 1)
+			exit(200);
+		i++;
 	}
 }

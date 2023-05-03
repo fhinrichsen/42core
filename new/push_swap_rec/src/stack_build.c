@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:34:32 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/03 11:02:48 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/03 16:00:23 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,11 +20,8 @@ void	read_two_arguments(char *argv)
 
 	count = 0;
 	arguments_s = ft_split(argv, ' ');
-	if (arguments_s[0] == NULL)
-	{
-		free(arguments_s);
-		exit(1);
-	}
+	if (!arguments_s)
+		ft_error(0, 30);
 	valid_int(arguments_s, TRUE);
 	while (arguments_s[count] != NULL)
 		count++;
@@ -53,8 +50,11 @@ t_stack	*build_stack(int *start, int *end)
 
 	n_elem = end - start;
 	stack = init_stack();
-	if (!stack /*|| TRUE*/) //test only
+	if (!stack )
+	{
+		free(start);
 		free_stack(stack, 30);
+	}
 	update_node_value(stack->a_top, *start);
 	fill_stack_a(stack, start, end);
 	return (stack);
