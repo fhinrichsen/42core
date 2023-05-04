@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:31:12 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/03 17:10:09 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:31:00 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,24 +39,24 @@ typedef struct s_stack
 //20 validation
 //30 malloc fail
 void	ft_error(t_stack *stack, int err_no);
-void	validation_error(char **arguments_s);
-void	validation_error2(char **arguments_s);
+void	free_split_error(char **arguments_s);
+void	free_split_win(char **arguments_s);
 //stack_build
 void	read_two_arguments(char *argv);
-void	read_n_arguments(char **arguments_s, int argc);
+void	read_n_arguments(char **arguments, int argc);
 t_stack	*build_stack(int *start, int *end);
 //validation
 void	valid_int(char **arguments_s, int created_at_runtime);
 void	unique_ints(int *arg_i, int *end);
-void empty_or_lonely(char **string_arr);
+void 	any_empty_s(char **string_arr);
+int		count_args(char **string_arr);
+int	*in_range(char **string_arr,int count, int created);
 //int handling
-int	ft_strtoint(const char *str, int *start);
-t_stack *handle_input(char **arguments_s, int argc, int created);
-int	check_min_max(long long val, int sign, int *start);
+int		check_min_max(long long val);
+int	ft_atoll(const char *str, int *error);
 //stack operations
 t_stack *init_stack();
 t_stack *fill_stack_a(t_stack *stack, int *start, int *end);
-void	lonely_number(t_stack *stack, int *end);
 //node operations
 void print_list(t_node *head);
 t_node	*new_node(int value);
@@ -66,5 +66,7 @@ t_node	*add_end_node(int val, t_node *top, t_node *prev);
 //freeing
 void	free_stack(t_stack *stack, int err_no);
 void	free_int_helper(int *start);
-void free_list(t_node *head);
+void	free_list(t_node *head);
+
+int		count_args(char **string_arr);
 #endif

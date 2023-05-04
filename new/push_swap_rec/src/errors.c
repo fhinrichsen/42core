@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:33:26 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/03 17:06:56 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 18:46:51 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -22,28 +22,30 @@ void	ft_error(t_stack *stack, int err_no)
 	free_stack(stack, err_no);
 }
 
-
-void	validation_error(char **arguments_s)
+/// @brief Frees string array and prints error to terminal and exit.
+/// @param arguments_s 
+void	free_split_error(char **arguments_s)
 {
 	int	i;
 
 	i = 0;
-	if (arguments_s == 0)
+	if (arguments_s == NULL)
 	{
 		ft_printf("Error\n");
 		exit (20);
 	}
-	while (arguments_s[i] != 0)
+	while (arguments_s[i] != NULL)
 	{
 		free(arguments_s[i]);
 		i++;
 	}
+	free(arguments_s);
 	ft_printf("Error\n");
 	exit (21);
 }
-/// @brief Just like validation error, exept it does not exit if 0.
+/// @brief Frees string array
 /// @param arguments_s 
-void	validation_error2(char **arguments_s)
+void	free_split_win(char **arguments_s)
 {
 	int	i;
 
@@ -55,6 +57,5 @@ void	validation_error2(char **arguments_s)
 		free(arguments_s[i]);
 		i++;
 	}
-	ft_printf("Error\n");
-	exit (21);
+	free(arguments_s);
 }

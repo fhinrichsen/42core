@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:34:32 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/03 10:40:34 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 17:53:39 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -38,7 +38,6 @@ t_stack *fill_stack_a(t_stack *stack, int *start, int *end)
 	else
 	{
 		free(start);
-		lonely_number(stack, end);
 	}
 	temp_end = stack->a_top;
 	while (curent_pos <= end)

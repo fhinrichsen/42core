@@ -6,41 +6,45 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:34:32 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/03 16:00:23 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:48:37 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	read_two_arguments(char *argv)
+void	read_two_arguments(char *arguments)
 {
 	int		count;
 	char	**arguments_s;
-	t_stack *stack;
+	int		*arguments_i;
+	int		*end;
+	//t_stack *stack;
 
 	count = 0;
-	arguments_s = ft_split(argv, ' ');
+	arguments_s = ft_split(arguments, ' ');
+	count = count_args(arguments_s);
 	if (!arguments_s)
-		ft_error(0, 30);
+		free_split_error(arguments_s);
 	valid_int(arguments_s, TRUE);
-	while (arguments_s[count] != NULL)
-		count++;
-	if (count == 1)
-		exit(0);
-	stack = handle_input(arguments_s, count, TRUE);
-	print_list(stack->a_top);
-	free_stack(stack, 0);
+	arguments_i = in_range(arguments_s, count, TRUE);
+	end = &arguments_i[(count - 1)];
+	unique_ints(arguments_i, end);
+	fprintf(stderr, "All unique\n");
+	free(arguments_i);
 }
 
-void	read_n_arguments(char **arguments_s, int argc)
+void	read_n_arguments(char **arguments, int argc)
 {
-	t_stack *stack;
+	int		*arguments_i;
+	int		*end;
+	//t_stack *stack;
 
-	valid_int(arguments_s, FALSE);
-	stack = handle_input(arguments_s, argc, FALSE);
-	print_list(stack->a_top);
-	free_stack(stack, 0);
-	return ;
+	valid_int(arguments, TRUE);
+	arguments_i = in_range(arguments, (argc), FALSE);
+	end = &arguments_i[(argc - 1)];
+	unique_ints(arguments_i, end);
+	fprintf(stderr, "All unique\n");
+	free(arguments_i);
 }
 
 t_stack	*build_stack(int *start, int *end)

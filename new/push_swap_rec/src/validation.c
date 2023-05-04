@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 22:20:05 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/03 12:26:00 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:52:48 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -34,8 +34,8 @@ void	valid_int(char **arguments_s, int created_at_runtime)
 			if (!ft_isdigit(temp[j]))
 			{
 				if (created_at_runtime)
-					validation_error(arguments_s);
-				validation_error(0);
+					free_split_error(arguments_s);
+				free_split_error(0);
 			}
 			j++;
 		}
@@ -62,7 +62,8 @@ void	unique_ints(int *start, int *end)
 			if (*curent_pos == temp)
 			{
 				free(start);
-				ft_error(0, 25);
+				ft_printf("Error\n");
+				exit(1);
 			}
 			curent_pos++;
 		}
@@ -71,7 +72,7 @@ void	unique_ints(int *start, int *end)
 	}
 }
 
-void empty_or_lonely(char **string_arr)
+void any_empty_s(char **string_arr)
 {
 	int		i;
 	int		len;
@@ -83,7 +84,10 @@ void empty_or_lonely(char **string_arr)
 	{
 		len = ft_strlen(string_arr[i]);
 		if (len == 0)
+		{
+			ft_printf("Error\n");
 			exit(200);
+		}
 		test = string_arr[i];
 		while (*test != '\0')
 		{
@@ -91,8 +95,58 @@ void empty_or_lonely(char **string_arr)
 				len--;
 			test++;
 		}
-		if (len <= 1)
+		if (len < 1)
+		{
+			ft_printf("Error\n");
 			exit(200);
+		}
 		i++;
 	}
+}
+/// @brief Takes array of strings, turns it to int, frees input
+/// @param string_arr Array of Strings
+/// @param created Created at runtime
+/// @return On succes array of ints, on failure: exit, error to terminal;
+int	*in_range(char **string_arr,int count, int created)
+{
+	int	*arguments_i;
+	int	i;
+	int	error = 0;
+	
+	arguments_i = malloc(sizeof(int) * count);
+	if (!arguments_i)
+		free_split_error(string_arr);
+	arguments_i[0] = 0;
+	i = 0;
+	while (i < count)
+	{
+		arguments_i[i] = ft_atoll(string_arr[i], &error);
+		if (error == TRUE)
+		{
+			free(arguments_i);
+			if (created)
+				free_split_error(string_arr);
+			free_split_error(NULL);
+		}
+		i++;
+	}
+	if (created)
+	{
+		free_split_win(string_arr);
+	}
+	return (arguments_i);
+}
+/// @brief Takes string array
+/// @param string_arr 
+/// @return Returns number of elements
+int	count_args(char **string_arr)
+{
+	int	i;
+	
+	i = 0;
+	while (string_arr[i] != NULL)
+	{
+		i++;
+	}
+	return (i);
 }
