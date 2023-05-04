@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:34:32 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 20:21:48 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:38:49 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,6 +26,11 @@ t_stack	*read_two_arguments(char *arguments)
 	if (!arguments_s)
 		free_split_error(arguments_s);
 	valid_int(arguments_s, TRUE);
+	if (count == 1)
+	{
+		free_split_win(arguments_s);
+		exit(0);
+	}
 	arguments_i = in_range(arguments_s, count, TRUE);
 	end = &arguments_i[(count - 1)];
 	unique_ints(arguments_i, end);
@@ -40,6 +45,8 @@ t_stack	*read_n_arguments(char **arguments, int argc)
 	t_stack	*stack;
 
 	valid_int(arguments, FALSE);
+	if (argc == 1)
+		exit(0);
 	arguments_i = in_range(arguments, (argc), FALSE);
 	end = &arguments_i[(argc - 1)];
 	unique_ints(arguments_i, end);

@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 22:20:05 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 20:11:29 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 21:12:35 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,7 +27,7 @@ void	valid_int(char **arguments_s, int created_at_runtime)
 	while (arguments_s[i] != NULL)
 	{
 		temp = arguments_s[i];
-		if (temp[j] == '-')
+		if (temp[j] == '-' || temp[j] == '+')
 				j++;
 		while (temp[j] != '\0')
 		{
