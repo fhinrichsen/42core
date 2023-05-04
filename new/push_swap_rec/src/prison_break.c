@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:34:32 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/03 16:03:48 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:01:29 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,22 +20,21 @@ void	free_stack(t_stack *stack, int err_no)
 	exit (err_no);
 }
 
-void free_list(t_node *head)
+void	free_list(t_node *head)
 {
-	t_node *current;
-	t_node *next;
-	
+	t_node	*current;
+	t_node	*next;
+
 	current = head;
 	next = NULL;
 	if (head == NULL)
-		return;
-	 while (current != NULL) 
-	 {
+		return ;
+	while (current != NULL)
+	{
 		next = current->next;
 		free(current);
 		current = next;
 		if (current == head)
-			break;
-	 }
-	
+			break ;
+	}
 }

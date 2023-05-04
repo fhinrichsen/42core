@@ -6,17 +6,16 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:34:32 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 17:53:39 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:03:59 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-
-t_stack *init_stack()
+t_stack	*init_stack(void)
 {
 	t_stack	*stack;
-	
+
 	stack = malloc(sizeof(t_stack));
 	if (!stack)
 		return (NULL);
@@ -27,7 +26,7 @@ t_stack *init_stack()
 	return (stack);
 }
 
-t_stack *fill_stack_a(t_stack *stack, int *start, int *end)
+t_stack	*fill_stack_a(t_stack *stack, int *start, int *end)
 {
 	int		*curent_pos;
 	t_node	*temp_end;
@@ -43,7 +42,7 @@ t_stack *fill_stack_a(t_stack *stack, int *start, int *end)
 	while (curent_pos <= end)
 	{
 	temp_end = add_end_node(*curent_pos, stack->a_top, temp_end);
-		if(temp_end == NULL)
+		if (temp_end == NULL)
 		{
 			free(start);
 			free_stack(stack, 20);

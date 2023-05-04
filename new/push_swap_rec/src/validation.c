@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 22:20:05 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 19:52:48 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:11:29 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -72,7 +72,7 @@ void	unique_ints(int *start, int *end)
 	}
 }
 
-void any_empty_s(char **string_arr)
+void	any_empty_s(char **string_arr)
 {
 	int		i;
 	int		len;
@@ -84,10 +84,7 @@ void any_empty_s(char **string_arr)
 	{
 		len = ft_strlen(string_arr[i]);
 		if (len == 0)
-		{
-			ft_printf("Error\n");
-			exit(200);
-		}
+			ft_error(0, 1);
 		test = string_arr[i];
 		while (*test != '\0')
 		{
@@ -96,27 +93,25 @@ void any_empty_s(char **string_arr)
 			test++;
 		}
 		if (len < 1)
-		{
-			ft_printf("Error\n");
-			exit(200);
-		}
+			ft_error(0, 1);
 		i++;
 	}
 }
+
 /// @brief Takes array of strings, turns it to int, frees input
 /// @param string_arr Array of Strings
 /// @param created Created at runtime
 /// @return On succes array of ints, on failure: exit, error to terminal;
-int	*in_range(char **string_arr,int count, int created)
+int	*in_range(char **string_arr, int count, int created)
 {
 	int	*arguments_i;
 	int	i;
-	int	error = 0;
-	
+	int	error;
+
+	error = 0;
 	arguments_i = malloc(sizeof(int) * count);
 	if (!arguments_i)
 		free_split_error(string_arr);
-	arguments_i[0] = 0;
 	i = 0;
 	while (i < count)
 	{
@@ -131,18 +126,17 @@ int	*in_range(char **string_arr,int count, int created)
 		i++;
 	}
 	if (created)
-	{
 		free_split_win(string_arr);
-	}
 	return (arguments_i);
 }
+
 /// @brief Takes string array
 /// @param string_arr 
 /// @return Returns number of elements
 int	count_args(char **string_arr)
 {
 	int	i;
-	
+
 	i = 0;
 	while (string_arr[i] != NULL)
 	{

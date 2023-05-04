@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:33:26 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 18:46:51 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:10:33 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -43,6 +43,7 @@ void	free_split_error(char **arguments_s)
 	ft_printf("Error\n");
 	exit (21);
 }
+
 /// @brief Frees string array
 /// @param arguments_s 
 void	free_split_win(char **arguments_s)

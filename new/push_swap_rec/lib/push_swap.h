@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:31:12 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 19:31:00 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:56:20 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,17 +48,17 @@ t_stack	*build_stack(int *start, int *end);
 //validation
 void	valid_int(char **arguments_s, int created_at_runtime);
 void	unique_ints(int *arg_i, int *end);
-void 	any_empty_s(char **string_arr);
+void	any_empty_s(char **string_arr);
 int		count_args(char **string_arr);
-int	*in_range(char **string_arr,int count, int created);
+int		*in_range(char **string_arr, int count, int created);
 //int handling
 int		check_min_max(long long val);
-int	ft_atoll(const char *str, int *error);
+int		ft_atoll(const char *str, int *error);
 //stack operations
-t_stack *init_stack();
-t_stack *fill_stack_a(t_stack *stack, int *start, int *end);
+t_stack	*init_stack(void);
+t_stack	*fill_stack_a(t_stack *stack, int *start, int *end);
 //node operations
-void print_list(t_node *head);
+void	print_list(t_node *head);
 t_node	*new_node(int value);
 void	update_node_value(t_node *my_node, int new_val);
 t_node	*add_end_node(int val, t_node *top, t_node *prev);

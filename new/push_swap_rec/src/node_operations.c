@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:51:18 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/02 19:38:07 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:59:50 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,7 @@ void	update_node_value(t_node *my_node, int new_val)
 /// @brief Allocates and initializes new node
 /// @param value Value of node as INT32
 /// @return pointer to new node
+
 t_node	*new_node(int value)
 {
 	t_node	*new_node;
@@ -41,7 +42,7 @@ t_node	*add_end_node(int val, t_node *top, t_node *prev)
 {
 	t_node	*new_node;
 
-	new_node = (t_node *)malloc(sizeof(t_node));
+	new_node = (t_node *) malloc(sizeof(t_node));
 	if (!new_node)
 		return (NULL);
 	new_node->value = val;
@@ -51,14 +52,14 @@ t_node	*add_end_node(int val, t_node *top, t_node *prev)
 	return (new_node);
 }
 
-void print_list(t_node *head)
-{
-    t_node *current = head;
-    do {
-        printf("%d ", current->value);
-        current = current->next;
-    } while (current != head);
-}
+// void	print_list(t_node *head)
+// {
+// 	t_node	*current = head;
+// 	do {
+// 		printf("%d ", current->value);
+// 		current = current->next;
+// 	} while (current != head);
+// }
 
 void	lonely_number(t_stack *stack, int *end)
 {

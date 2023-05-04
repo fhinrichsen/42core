@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:52:20 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 19:04:38 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 19:57:22 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -32,8 +32,8 @@ int	ft_atoll(const char *str, int *error)
 		if (check_min_max(val))
 		{
 			*error = 1;
-			return(0);
-		}	
+			return (0);
+		}
 		str++;
 	}
 	return ((val * sign));
@@ -42,6 +42,6 @@ int	ft_atoll(const char *str, int *error)
 int	check_min_max(long long val)
 {
 	if (val < INT32_MAX && val > INT32_MIN)
-		return(FALSE);
+		return (FALSE);
 	return (TRUE);
 }
