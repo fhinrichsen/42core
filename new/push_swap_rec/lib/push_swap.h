@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:31:12 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 19:56:20 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:22:07 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,8 +42,8 @@ void	ft_error(t_stack *stack, int err_no);
 void	free_split_error(char **arguments_s);
 void	free_split_win(char **arguments_s);
 //stack_build
-void	read_two_arguments(char *argv);
-void	read_n_arguments(char **arguments, int argc);
+t_stack	*read_two_arguments(char *argv);
+t_stack	*read_n_arguments(char **arguments, int argc);
 t_stack	*build_stack(int *start, int *end);
 //validation
 void	valid_int(char **arguments_s, int created_at_runtime);

@@ -6,18 +6,19 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:34:32 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 20:12:11 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/04 20:21:48 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	read_two_arguments(char *arguments)
+t_stack	*read_two_arguments(char *arguments)
 {
 	int		count;
 	char	**arguments_s;
 	int		*arguments_i;
 	int		*end;
+	t_stack	*stack;
 
 	count = 0;
 	arguments_s = ft_split(arguments, ' ');
@@ -28,21 +29,22 @@ void	read_two_arguments(char *arguments)
 	arguments_i = in_range(arguments_s, count, TRUE);
 	end = &arguments_i[(count - 1)];
 	unique_ints(arguments_i, end);
-	fprintf(stderr, "All unique\n");
-	free(arguments_i);
+	stack = build_stack(arguments_i, end);
+	return(stack);
 }
 
-void	read_n_arguments(char **arguments, int argc)
+t_stack	*read_n_arguments(char **arguments, int argc)
 {
 	int	*arguments_i;
 	int	*end;
+	t_stack	*stack;
 
 	valid_int(arguments, FALSE);
 	arguments_i = in_range(arguments, (argc), FALSE);
 	end = &arguments_i[(argc - 1)];
 	unique_ints(arguments_i, end);
-	fprintf(stderr, "All unique\n");
-	free(arguments_i);
+	stack = build_stack(arguments_i, end);
+	return(stack);
 }
 
 t_stack	*build_stack(int *start, int *end)
