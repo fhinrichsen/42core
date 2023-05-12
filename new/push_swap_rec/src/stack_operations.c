@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:34:32 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 20:03:59 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:53:40 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -20,7 +20,7 @@ t_stack	*init_stack(void)
 	if (!stack)
 		return (NULL);
 	stack->a_top = new_node(0);
-	stack->b_top = new_node(0);
+	stack->b_top = NULL;
 	stack->a_size = 0;
 	stack->b_size = 0;
 	return (stack);
@@ -45,10 +45,56 @@ t_stack	*fill_stack_a(t_stack *stack, int *start, int *end)
 		if (temp_end == NULL)
 		{
 			free(start);
+			write(2, "Error\n", 7);
 			free_stack(stack, 20);
 		}
 		curent_pos++;
 	}
-	free(start);
 	return (stack);
+}
+
+// 8lines too long
+void	normalize_ints(t_stack *stack)
+{
+	int		i;
+	int		min;
+	t_node	*current;
+
+	i = 1;
+	current = stack->a_top;
+	while (i <= (stack->a_size) + 1)
+	{
+		min = INT32_MAX;
+		find_min(i, min, stack, current);
+		i++;
+	}
+}
+
+void	find_min(int new_value, int min, t_stack *stack, t_node	*current)
+{
+	int		j;
+
+	j = stack->a_size;
+	while (j >= 0)
+	{
+		if (current->value < min)
+		{
+			if (current->index > 0)
+			{
+				current = current->next;
+				j--;
+				continue ;
+			}
+			min = current->value;
+		}
+		current = current->next;
+		j--;
+	}
+	while (j <= stack->a_size)
+	{
+		if (current->value == min)
+			current->index = new_value;
+		current = current->next;
+		j++;
+	}
 }

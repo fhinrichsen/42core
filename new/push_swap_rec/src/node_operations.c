@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:51:18 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 20:18:11 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/11 19:15:41 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,6 +30,7 @@ t_node	*new_node(int value)
 	new_node->prev = NULL;
 	new_node->next = NULL;
 	new_node->value = value;
+	new_node->index = 0;
 	return (new_node);
 }
 
@@ -46,19 +47,32 @@ t_node	*add_end_node(int val, t_node *top, t_node *prev)
 	if (!new_node)
 		return (NULL);
 	new_node->value = val;
+	new_node->index = 0;
 	new_node->prev = prev;
 	new_node->next = top;
 	new_node->prev->next = new_node;
+	top->prev = new_node;
 	return (new_node);
 }
-
 void	print_list(t_node *head)
 {
 	t_node	*current = head;
+	if (head == NULL)
+	{
+		fprintf(stderr, "Empty\n");
+		return ;
+	}
+	fprintf(stderr, "  Val: ");
 	do {
-		printf("%d ", current->value);
+		fprintf(stderr, "%d ", current->value);
 		current = current->next;
 	} while (current != head);
+	// fprintf(stderr, "\nIndex: ");
+	// current = head;
+	// do {
+	// 	fprintf(stderr, "%d ", current->index);
+	// 	current = current->next;
+	// } while (current != head);
 }
 
 void	lonely_number(t_stack *stack, int *end)

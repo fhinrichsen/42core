@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:33:26 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 20:10:33 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:53:55 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,9 +16,10 @@ void	ft_error(t_stack *stack, int err_no)
 {
 	if (stack == 0)
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 7);
 		exit (err_no);
 	}
+	write(2, "Error\n", 7);
 	free_stack(stack, err_no);
 }
 
@@ -31,7 +32,7 @@ void	free_split_error(char **arguments_s)
 	i = 0;
 	if (arguments_s == NULL)
 	{
-		ft_printf("Error\n");
+		write(2, "Error\n", 7);
 		exit (20);
 	}
 	while (arguments_s[i] != NULL)
@@ -40,7 +41,7 @@ void	free_split_error(char **arguments_s)
 		i++;
 	}
 	free(arguments_s);
-	ft_printf("Error\n");
+	write(2, "Error\n", 7);
 	exit (21);
 }
 

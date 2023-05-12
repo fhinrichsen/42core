@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:34:32 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 20:38:49 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/11 18:53:30 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -35,13 +35,13 @@ t_stack	*read_two_arguments(char *arguments)
 	end = &arguments_i[(count - 1)];
 	unique_ints(arguments_i, end);
 	stack = build_stack(arguments_i, end);
-	return(stack);
+	return (stack);
 }
 
 t_stack	*read_n_arguments(char **arguments, int argc)
 {
-	int	*arguments_i;
-	int	*end;
+	int		*arguments_i;
+	int		*end;
 	t_stack	*stack;
 
 	valid_int(arguments, FALSE);
@@ -51,7 +51,7 @@ t_stack	*read_n_arguments(char **arguments, int argc)
 	end = &arguments_i[(argc - 1)];
 	unique_ints(arguments_i, end);
 	stack = build_stack(arguments_i, end);
-	return(stack);
+	return (stack);
 }
 
 t_stack	*build_stack(int *start, int *end)
@@ -59,14 +59,18 @@ t_stack	*build_stack(int *start, int *end)
 	t_stack	*stack;
 	int		n_elem;
 
-	n_elem = end - start;
+	n_elem = end - (start);
 	stack = init_stack();
 	if (!stack)
 	{
 		free(start);
+		write(2, "Error\n", 7);
 		free_stack(stack, 30);
 	}
 	update_node_value(stack->a_top, *start);
 	fill_stack_a(stack, start, end);
+	free(start);
+	stack->a_size = n_elem;
+	normalize_ints(stack);
 	return (stack);
 }

@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:35:42 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 20:30:32 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/11 19:55:07 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,7 @@
 int	main(int argc, char **argv)
 {
 	t_stack	*stack;
-	
+
 	if (argc == 1)
 		exit(1);
 	argv++;
@@ -31,5 +31,12 @@ int	main(int argc, char **argv)
 		stack = read_n_arguments(argv, argc);
 	}
 	print_list(stack->a_top);
+	// ft_push(&stack->b_top, ft_pop(&stack->a_top));
+	ft_rotate(1, &stack->a_top);
+	fprintf(stderr, "\n");
+	print_list(stack->a_top);
+	fprintf(stderr, "\n");
+	// print_list(stack->b_top);
+	free_stack(stack, 10);
 	return (0);
 }

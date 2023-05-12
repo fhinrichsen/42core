@@ -36,6 +36,8 @@ FUNCTIONS =	main \
 			stack_operations \
 			node_operations \
 			prison_break \
+			operations_pushes \
+			list_opertations \
 
 SRCFILES = $(addprefix $(SRCDIR), $(addsuffix .c, $(FUNCTIONS)))
 OBJFILES = $(addprefix $(OBJDIR), $(addsuffix .o, $(FUNCTIONS)))
