@@ -60,3 +60,18 @@ void	ft_rotate(int direction, t_node **list)
 	if(direction == 0)
 		ft_printf("rrb\n");
 }
+
+void	ft_swap(t_node **list, char stack_literal)
+{
+	int	temp;
+
+	if (!(*list))
+		return ;
+	temp = (*list)->index;
+	(*list)->index = (*list)->next->index;
+	(*list)->next->index = temp;
+	if(stack_literal == 'a')
+		ft_printf("sa\n");
+	if(stack_literal == 'b')
+		ft_printf("sb\n");
+}
