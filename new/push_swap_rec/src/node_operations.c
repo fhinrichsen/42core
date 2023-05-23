@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:51:18 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/11 19:15:41 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/22 17:00:08 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,7 @@ void	print_list(t_node *head)
 		fprintf(stderr, "%d ", current->value);
 		current = current->next;
 	} while (current != head);
-	// fprintf(stderr, "\nIndex: ");
-	// current = head;
-	// do {
-	// 	fprintf(stderr, "%d ", current->index);
-	// 	current = current->next;
-	// } while (current != head);
+	
 }
 
 void	lonely_number(t_stack *stack, int *end)

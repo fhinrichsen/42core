@@ -43,12 +43,20 @@ void	ft_push(t_node **list, t_node *push_this)
 }
 
 /// @brief rotates entry point ot a list
-/// @param direction 1 to ra or rb; 0 to rra or rrb
+/// @param direction 1 to ra 11 rb; 0 to rra or -1 rrb
 /// @param list List to rotate
 void	ft_rotate(int direction, t_node **list)
 {
-	if (direction)
+	if(direction == 1)
+		ft_printf("ra\n");
+	if(direction == 11)
+		ft_printf("rb\n");
+	if (direction > 0)
 		*(list) = (*list)->next;
 	else
 		*(list) = (*list)->prev;
+	if(direction == -1)
+		ft_printf("rra\n");
+	if(direction == 0)
+		ft_printf("rrb\n");
 }

@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:31:12 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/11 19:04:58 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:53:07 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -73,7 +73,8 @@ void	free_list(t_node *head);
 
 int		count_args(char **string_arr);
 
-t_node    *ft_pop(t_node **list);
+t_node	*ft_pop(t_node **list);
 void	ft_push(t_node **list, t_node *push_this);
 void	ft_rotate(int direction, t_node **list);
+void	is_sorted(t_stack *stack);
 #endif

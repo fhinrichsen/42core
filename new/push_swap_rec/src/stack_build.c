@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:34:32 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/11 18:53:30 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/22 19:47:07 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,7 @@ t_stack	*build_stack(int *start, int *end)
 	update_node_value(stack->a_top, *start);
 	fill_stack_a(stack, start, end);
 	free(start);
-	stack->a_size = n_elem;
+	stack->a_size = n_elem + 1;
 	normalize_ints(stack);
 	return (stack);
 }
