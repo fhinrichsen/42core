@@ -52,7 +52,7 @@ fast: fclean
 
 $(NAME): 
 	@make -C $(LIBFT_DIR)
-	@$(COMPILE) $(SRCFILES) $(LIBFT) -g -o $(NAME)
+	@$(COMPILE) $(SRCFILES) $(LIBFT) -o $(NAME)
 	@echo "$(GREEN)$(NAME) created.$(DEF_COLOR)"
 
 clean:

@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:31:12 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/23 17:03:06 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/24 21:14:24 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,7 @@ void	any_empty_s(char **string_arr);
 int		count_args(char **string_arr);
 int		*in_range(char **string_arr, int count, int created);
 //int handling
+int		count_args(char **string_arr);
 int		check_min_max(long long val);
 int		ft_atoll(const char *str, int *error);
 //stack operations
@@ -65,17 +66,21 @@ void	print_list(t_node *head);
 t_node	*new_node(int value);
 void	update_node_value(t_node *my_node, int new_val);
 t_node	*add_end_node(int val, t_node *top, t_node *prev);
-//operations
 
 //freeing
 void	free_stack(t_stack *stack, int err_no);
 void	free_list(t_node *head);
 
-int		count_args(char **string_arr);
 
+//operations
+void	push_pop(t_stack *stack, char cmd);
 t_node	*ft_pop(t_node **list);
 void	ft_push(t_node **list, t_node *push_this);
 void	ft_rotate(int direction, t_node **list);
 void	is_sorted(t_stack *stack);
 void	ft_swap(t_node **list, char stack_literal);
+
+void	sort_small_stack(t_stack *stack);
+void	sort_three(t_stack *stack);
+void	sort_five(t_stack *stack);
 #endif

@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 22:20:05 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/04 21:12:35 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/24 16:52:26 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -88,7 +88,8 @@ void	any_empty_s(char **string_arr)
 		test = string_arr[i];
 		while (*test != '\0')
 		{
-			if (*test == ' ')
+			if (*test == ' ' || *test == '+'
+				|| *test == '-')
 				len--;
 			test++;
 		}
