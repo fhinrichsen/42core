@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/02 15:51:18 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/22 17:00:08 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/24 21:30:53 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,21 +54,20 @@ t_node	*add_end_node(int val, t_node *top, t_node *prev)
 	top->prev = new_node;
 	return (new_node);
 }
-void	print_list(t_node *head)
-{
-	t_node	*current = head;
-	if (head == NULL)
-	{
-		fprintf(stderr, "Empty\n");
-		return ;
-	}
-	fprintf(stderr, "  Val: ");
-	do {
-		fprintf(stderr, "%d ", current->value);
-		current = current->next;
-	} while (current != head);
-	
-}
+// void	print_list(t_node *head)
+// {
+// 	t_node	*current = head;
+// 	if (head == NULL)
+// 	{
+// 		fprintf(stderr, "Empty\n");
+// 		return ;
+// 	}
+// 	fprintf(stderr, "  Val: ");
+// 	do {
+// 		fprintf(stderr, "%d ", current->value);
+// 		current = current->next;
+// 	} while (current != head);
+// }
 
 void	lonely_number(t_stack *stack, int *end)
 {

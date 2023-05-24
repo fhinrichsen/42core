@@ -38,7 +38,7 @@ FUNCTIONS =	main \
 			prison_break \
 			operations_pushes \
 			list_opertations \
-			sorting \
+			sorting_small_stack \
 
 SRCFILES = $(addprefix $(SRCDIR), $(addsuffix .c, $(FUNCTIONS)))
 OBJFILES = $(addprefix $(OBJDIR), $(addsuffix .o, $(FUNCTIONS)))

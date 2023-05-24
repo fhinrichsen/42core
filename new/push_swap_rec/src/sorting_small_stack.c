@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   sorting_small_stack.c                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/24 21:32:10 by fhinrich          #+#    #+#             */
+/*   Updated: 2023/05/24 21:32:11 by fhinrich         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 void	is_sorted(t_stack *stack)
@@ -39,18 +51,18 @@ void	sort_five(t_stack *stack)
 
 	x = stack->a_size - 2;
 	while (stack->a_size > 3)
-		{
-			if (stack->a_top->index < x)
-				push_pop(stack, 'b');
-			if(stack->a_size > 3)
-				ft_rotate(1, &stack->a_top);
-		}
-		sort_three(stack);
-		if (stack->b_top->index < stack->b_top->next->index)
-			ft_rotate(11, &stack->b_top);
-		push_pop(stack, 'a');
-		push_pop(stack, 'a');
-		free_stack(stack, 0);
+	{
+		if (stack->a_top->index < x)
+			push_pop(stack, 'b');
+		if (stack->a_size > 3)
+			ft_rotate(1, &stack->a_top);
+	}
+	sort_three(stack);
+	if (stack->b_top->index < stack->b_top->next->index)
+		ft_rotate(11, &stack->b_top);
+	push_pop(stack, 'a');
+	push_pop(stack, 'a');
+	free_stack(stack, 0);
 }
 
 static void	small_top(int t, int m, int b, t_stack *s)
@@ -84,7 +96,7 @@ void	sort_three(t_stack *stack)
 	}
 	else if (top < mid)
 	{
-		if(top < bottom)
+		if (top < bottom)
 		{
 			ft_swap(&stack->a_top, 'a');
 			ft_rotate(1, &stack->a_top);
@@ -92,5 +104,4 @@ void	sort_three(t_stack *stack)
 		else
 			ft_rotate(0, &stack->a_top);
 	}
-
 }

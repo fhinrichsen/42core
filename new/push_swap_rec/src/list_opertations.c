@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   list_opertations.c                                 :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2023/05/24 21:28:23 by fhinrich          #+#    #+#             */
+/*   Updated: 2023/05/24 21:29:47 by fhinrich         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "push_swap.h"
 
 /// @brief removes the top node while keeping list intact
@@ -58,7 +70,6 @@ void	push_pop(t_stack *stack, char cmd)
 		stack->a_size--;
 		stack->b_size++;
 	}
-
 }
 
 /// @brief rotates entry point ot a list
@@ -66,17 +77,17 @@ void	push_pop(t_stack *stack, char cmd)
 /// @param list List to rotate
 void	ft_rotate(int direction, t_node **list)
 {
-	if(direction == 1)
+	if (direction == 1)
 		ft_printf("ra\n");
-	if(direction == 11)
+	if (direction == 11)
 		ft_printf("rb\n");
 	if (direction > 0)
 		*(list) = (*list)->next;
 	else
 		*(list) = (*list)->prev;
-	if(direction == 0)
+	if (direction == 0)
 		ft_printf("rra\n");
-	if(direction == -1)
+	if (direction == -1)
 		ft_printf("rrb\n");
 }
 
@@ -89,8 +100,8 @@ void	ft_swap(t_node **list, char stack_literal)
 	temp = (*list)->index;
 	(*list)->index = (*list)->next->index;
 	(*list)->next->index = temp;
-	if(stack_literal == 'a')
+	if (stack_literal == 'a')
 		ft_printf("sa\n");
-	if(stack_literal == 'b')
+	if (stack_literal == 'b')
 		ft_printf("sb\n");
 }

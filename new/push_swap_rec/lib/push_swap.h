@@ -6,7 +6,7 @@
 /*   By: fhinrich <fhinrich@student.42wolfsburg.de> +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2023/05/01 21:31:12 by fhinrich          #+#    #+#             */
-/*   Updated: 2023/05/24 21:14:24 by fhinrich         ###   ########.fr       */
+/*   Updated: 2023/05/24 21:30:07 by fhinrich         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -70,7 +70,6 @@ t_node	*add_end_node(int val, t_node *top, t_node *prev);
 //freeing
 void	free_stack(t_stack *stack, int err_no);
 void	free_list(t_node *head);
-
 
 //operations
 void	push_pop(t_stack *stack, char cmd);
